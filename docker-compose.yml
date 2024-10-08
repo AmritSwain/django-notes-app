@@ -1,7 +1,26 @@
-version : "3.3"
-services :
-  web :
+
+#version : "3.3"
+#services :
+#  web :
      
-     image: "trainwithshubham/notes-app"
-     ports :
-         - "8000:8000"
+ #    image: "trainwithshubham/notes-app:latest"
+ #    ports :
+ #        - "8000:8000"
+         
+version: "3.3"
+services:
+  web:
+    image: "trainwithshubham/notes-app:latest"
+    ports:
+      - "8000:8000"
+
+  jenkins:
+    image: "jenkins/jenkins:lts"
+    ports:
+      - "8080:8080"        # Jenkins web interface
+      - "50000:50000"      # Jenkins agent communication
+    volumes:
+      - jenkins_home:/var/jenkins_home  # Persist Jenkins data
+
+volumes:
+  jenkins_home:
