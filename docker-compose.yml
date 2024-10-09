@@ -14,13 +14,4 @@ services:
     ports:
       - "8000:8000"
 
-  jenkins:
-    image: "jenkins/jenkins:lts"
-    ports:
-      - "8080:8080"        # Jenkins web interface
-      - "50000:50000"      # Jenkins agent communication
-    volumes:
-      - jenkins_home:/var/jenkins_home  # Persist Jenkins data
-
-volumes:
-  jenkins_home:
+  
